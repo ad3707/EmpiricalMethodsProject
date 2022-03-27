@@ -21,4 +21,12 @@ fourthMarkerEnd = int(dt.datetime(2021,5,18).timestamp())
 fifthMarkerStart = int(dt.datetime(2021,9,1).timestamp())
 fifthMarkerEnd = int(dt.datetime(2021,12,31).timestamp())
 
-subreddit = " 
+subreddit = "Cornell"
+
+limit=100000
+comments = api.search_comments(subreddit=subreddit, limit=limit, before=firstMarkerStart, after=firstMarkerEnd)
+
+comments_df = pd.DataFrame(comments)
+comments_df.head(5)
+
+comments_df.to_csv('./wsb_comments.csv', header=True, index=False, columns=list(comments_df.axes[1]))
