@@ -33,7 +33,8 @@ endMarkers = [firstMarkerEnd, secondMarkerEnd, thirdMarkerEnd, fourthMarkerEnd, 
 
 # subreddit = "NEU"
 sems = ["f19","s20","f20","s21", "f21"]
-subreddits = ["uofm", "UNC"]
+# subreddits = ["uofm", "UNC"]
+subreddits = ["berkeley", "UCI", "UCDavis", "ucla"]
 
 limit=1000
 for subreddit in subreddits:
