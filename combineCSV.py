@@ -1,13 +1,14 @@
-import pandas as pd 
-import glob 
+import pandas as pd
+import glob
 
-path = "/csvTest"
+path = "csvTest"
 
 li = []
 all_files = glob.glob(path + "/*.csv")
 
-for filename in all_files: 
+for filename in all_files:
   df = pd.read_csv(filename,index_col = None, header = 0)
   li.append(df)
 
 frame = pd.concat(li, axis = 0, ignore_index = True)
+frame.to_csv(f'./combinedCSV/f19_posts.csv', header = True, index = False, columns = list(frame.axes[1]))
