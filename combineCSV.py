@@ -1,7 +1,7 @@
 import pandas as pd 
 import glob 
 
-path = "/CSV"
+path = "/csvTest"
 
 li = []
 
