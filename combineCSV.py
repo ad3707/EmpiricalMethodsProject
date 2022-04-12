@@ -1,5 +1,6 @@
 import pandas as pd
 import glob
+from sklearn.utils import shuffle
 
 postsPathF19 = 'csv/posts/f19'
 postsPathF20 = 'csv/posts/f20'
@@ -38,11 +39,26 @@ for filename in spring21_postsFiles:
 for filename in spring20_postsFiles:
     dfS20 = pd.read_csv(filename,index_col = None, header = 0)
     liS20.append(dfS20)
+
 frameFall19 = pd.concat(liF19, axis = 0, ignore_index = True)
+frameFall19 = shuffle(frameFall19)
+frameFall19.reset_index(inplace=True, drop=True) 
+
 frameFall20 = pd.concat(liF20, axis = 0, ignore_index = True)
+frameFall29 = shuffle(frameFall20)
+frameFall20.reset_index(inplace=True, drop=True) 
+
 frameFall21 = pd.concat(liF21, axis = 0, ignore_index = True)
+frameFall21 = shuffle(frameFall21)
+frameFall21.reset_index(inplace=True, drop=True) 
+
 frameSpring21 = pd.concat(liS21, axis = 0, ignore_index = True)
+frameSpring21 = shuffle(frameSpring21)
+frameSpring21.reset_index(inplace=True, drop=True) 
+
 frameSpring20 = pd.concat(liS20, axis = 0, ignore_index = True)
+frameSpring20 = shuffle(frameSpring20)
+frameSpring20.reset_index(inplace=True, drop=True) 
 
 frameFall19.to_csv(f'./combinedCSV/f19_posts.csv', header = True, index = False, columns = list(frameFall19.axes[1]))
 frameFall20.to_csv(f'./combinedCSV/f20_posts.csv', header = True, index = False, columns = list(frameFall20.axes[1]))
